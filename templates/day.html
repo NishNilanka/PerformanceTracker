@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Day</title>
@@ -25,17 +25,22 @@
 
 
 
-<form action="/forward/" method="post">
+<form>
   <label for="startday">Start Date:</label>
   <input type="date" id="startday" name="Start_Date">
 
     <label for="endday">End Date:</label>
   <input type="date" id="endday" name="End_Date">
-  <input type="submit">
+  <button  id="submit_btn">Submit</button>
 </form>
 
 
+ <p>{{selected_date}}</p>
+
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-<script src="{{url_for('static', filename='javascript/calendar.js')}}"></script>
+<script src="{{url_for('static', filename='javascript/day.js')}}"></script>
 </body>
+
+
 </html>
