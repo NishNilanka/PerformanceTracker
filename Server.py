@@ -1,0 +1,27 @@
+from flask import Flask, render_template
+app = Flask(__name__)
+
+
+@app.route('/')
+def home():
+    return render_template("home.html")
+
+
+@app.route('/day')
+def day():
+    return render_template("day.html")
+
+
+@app.route('/range')
+def range():
+    return render_template("home.html")
+
+
+@app.route('/officer')
+def officer():
+    return render_template("home.html")
+
+
+
+if __name__ =='__main__':
+    app.run()

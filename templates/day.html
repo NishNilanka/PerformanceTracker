@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+</head>
+<body>
+
+ <header>
+         <div class="container">
+            <h1 class="logo">Performance App</h1>
+            <strong>
+               <nav>
+                  <ul class="menu">
+                     <li><a href="{{ url_for('day') }}">Day</a></li>
+                     <li><a href="{{ url_for('range') }}">Range</a></li>
+                      <li><a href="{{ url_for('officer') }}">Officer</a></li>
+                  </ul>
+               </nav>
+            </strong>
+         </div>
+      </header>
+
+
+
+<form action="/forward/" method="post">
+  <label for="startday">Start Date:</label>
+  <input type="date" id="startday" name="Start_Date">
+
+    <label for="endday">End Date:</label>
+  <input type="date" id="endday" name="End_Date">
+  <input type="submit">
+</form>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<script src="{{url_for('static', filename='javascript/calendar.js')}}"></script>
+</body>
+</html>
