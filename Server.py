@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, url_for, redirect
+import pandas as pd
 
 app = Flask(__name__)
-
+stf = pd.read_excel("Book1.xlsx", index_col=None, na_values=['NA'],
+                    usecols="C,U:XFD")  # only import C column and U to XDF columns
+stf.columns = stf.columns.str.replace(' ', '')
+print("Hi")
 
 @app.route('/')
 def home():
