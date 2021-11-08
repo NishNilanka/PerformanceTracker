@@ -15,7 +15,7 @@
                <nav>
                   <ul class="menu">
                      <li><a href="{{ url_for('day') }}">Day</a></li>
-                     <li><a href="{{ url_for('range') }}">Range</a></li>
+                     <li><a href="{{ url_for('_range') }}">Range</a></li>
                       <li><a href="{{ url_for('officer') }}">Officer</a></li>
                   </ul>
                </nav>
@@ -37,7 +37,7 @@
 
  <p>{{selected_date}}</p>
 
-
+<img src="{{ url_for('static', filename=graph) }}" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 <script src="{{url_for('static', filename='javascript/day.js')}}"></script>
 </body>
