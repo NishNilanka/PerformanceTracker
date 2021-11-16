@@ -7,16 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-<script src="{{url_for('static', filename='javascript/day.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/day.js')}}"></script>
 </head>
-<body onload="onload_func()">
-
-<script>
-function onload_func()
-{
-    document.getElementById("plot").style.display = "none";
-}
-</script>
+<body>
 
 
  <header>
@@ -36,7 +29,7 @@ function onload_func()
 
 
 
-<form method="post">
+<form method="post" onsubmit="onload_func">
   <label for="startday">Start Date:</label>
   <input type="date" id="startday" name="Start_Date">
 
@@ -44,6 +37,8 @@ function onload_func()
   <input type="date" id="endday" name="End_Date">
   <button  id="submit_btn">Submit</button>
 </form>
+
+
 
 
  <p>{{selected_date}}</p>
