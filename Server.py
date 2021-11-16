@@ -7,7 +7,9 @@ from flask import Flask, render_template, request, url_for, redirect
 import pandas as pd
 from datetime import datetime,date
 import numpy as np
-from matplotlib import pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
@@ -34,14 +36,14 @@ def _range():
 def officer():
     return render_template("home.html")
 
-@app.route('/day', methods=['POST'])
+@app.route('/day')
 def day():
     return render_template("day.html")
 
-@app.route('/day', methods=['GET'])
+@app.route('/day', methods=['POST'])
 def cal_day():
-    start_date = request.args.get("Start_Date")
-    end_date = request.args.get("End_Date")
+    start_date = request.form.get("Start_Date")
+    end_date = request.form.get("End_Date")
     graph_name = cal(start_date, end_date)
     full_path= graph_name
     return render_template("day.html", graph=full_path)
@@ -170,7 +172,7 @@ def cal(start_date=None, end_date=None):
     print(avarages_days)
     print(final_average_list)
 
-    plt.barh(avarages_days['ER'], avarages_days['Average'])
+    plt.barh(avarages_days['ER'], avarages_days['Average'], color=(0.1, 0.1, 0.1, 0.1),  edgecolor='blue')
     plt.title('Percentage of Absenteeism from %s to %s' % (d1, d2))
     plt.xlabel('Percentage')
     plt.axvline(x=4.5, color='r', linestyle='-')

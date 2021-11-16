@@ -5,8 +5,19 @@
     <title>Day</title>
      <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<script src="{{url_for('static', filename='javascript/day.js')}}"></script>
 </head>
-<body>
+<body onload="onload_func()">
+
+<script>
+function onload_func()
+{
+    document.getElementById("plot").style.display = "none";
+}
+</script>
+
 
  <header>
          <div class="container">
@@ -25,7 +36,7 @@
 
 
 
-<form>
+<form method="post">
   <label for="startday">Start Date:</label>
   <input type="date" id="startday" name="Start_Date">
 
@@ -37,9 +48,8 @@
 
  <p>{{selected_date}}</p>
 
-<img src="{{ url_for('static', filename=graph) }}" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-<script src="{{url_for('static', filename='javascript/day.js')}}"></script>
+<img id="plot" src="{{ url_for('static', filename=graph) }}" />
+
 </body>
 
 
